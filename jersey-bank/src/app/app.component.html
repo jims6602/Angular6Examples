@@ -1,0 +1,103 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div>
+  <div style="float:left">
+    <img src="assets/img/decorative-flower-57-202517.png" >
+  </div>
+  <h1>{{ title }}</h1>
+</div>
+
+<nav class="site-header sticky-top py-1 navbar-light bg-light">
+  <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <a class="py-2 d-none d-md-inline-block" routerLink="app-locations">Branch Locations</a>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <form [formGroup]="loginForm">
+
+
+      <div id="login" *ngIf="isOn==1" class="container">
+
+        <div class="form-group">
+          <label for="username">User Name </label>
+          <input
+            formControlName="username"
+            id="username"
+            type="text"
+            class="form-control">
+
+          <div *ngIf="submitted && lf.username.status === 'INVALID'" >
+            <div class="text-danger" *ngIf="lf.username.errors.required">Users Name is required.</div>
+            <div class="text-danger" *ngIf="lf.username.errors.cannotContainSpace">User Name cannot contain space.</div>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="password">User Password</label>
+          <input
+            formControlName="password"
+            id="password"
+            type="text"
+            class="form-control">
+          <div *ngIf="submitted && lf.password.status === 'INVALID'" >
+            <div class="text-danger" *ngIf="lf.password.errors.required">Password is required.</div>
+            <div class="text-danger" *ngIf="lf.password.errors.minlength">Password must be at least 6 characters.</div>
+          </div>
+
+        </div>
+
+        <div>
+          <button class="btn btn-primary" type="submit" (click)="signIn()">Sign In</button>
+          <button class="btn btn-primary" (click)="isOn=2" >Sign Up</button>
+        </div>
+
+      </div>
+
+      </form>
+
+      <div id="signUp" *ngIf="isOn==2" class="container">
+
+        <div class="form-group">
+          <label for="newname">User Name</label>
+          <input
+            formControlName="newname"
+            id="newname"
+            type="text"
+            class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="newpassword">Password</label>
+          <input
+            formControlName="newpassword"
+            id="newpassword"
+            type="text"
+            class="form-control">
+        </div>
+
+
+        <div>
+          <button class="btn btn-primary" (click)="signUp()" >Finish</button>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col">
+
+      <div class="container">
+        <router-outlet> </router-outlet>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,24 @@
+h1{
+  color: #168450;
+  margin: 10px;
+}
+input{
+  margin: 10px;
+}
+
+label{
+  font-size: x-large;
+}
+
+#login{
+  background-color: lightsteelblue;
+  width: 400px;
+  height:600px;
+  margin: 20px;
+}
+
+button{
+  margin: 5px;
+  width: 275px;
+}
+
